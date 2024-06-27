@@ -18,6 +18,7 @@ modules:
 *Smrnmi Extension* +
 *Smcdeleg* +
 _Smdbltrp_ +
+*Smpmpmt* +
 _Supervisor ISA_ +
 *Svade Extension* +
 *Svnapot Extension* + 
@@ -38,6 +39,7 @@ _Shlcofideleg_
 *1.0* +
 *1.0* +
 _1.0_ +
+_0.1_ +
 _1.13_ +
 *1.0* +
 *1.0* +
@@ -57,6 +59,7 @@ _0.1_
 *Ratified* +
 *Ratified* +
 *Ratified* +
+_Draft_ +
 _Draft_ +
 _Draft_ +
 *Ratified* +
