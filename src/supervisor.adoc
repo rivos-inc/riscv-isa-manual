@@ -732,6 +732,7 @@ characteristics of the U-mode execution environment.
   {bits:  2, name: 'CBIE'},
   {bits:  1, name: 'CBCFE'},
   {bits:  1, name: 'CBZE'},
+  {bits:  1, name: 'SVKT'},
   {bits: 24, name: 'WPRI'},
   {bits:  2, name: 'PMM'},
   {bits: 30, name: 'WPRI'},
@@ -822,6 +823,17 @@ The definition of the CBZE field is furnished by the Zicboz extension.
 
 The definitions of the CBCFE and CBIE fields are furnished by the Zicbom
 extension.
+
+If the Svkt extension is implemented, the SVKT field affects the behavior of
+instruction fetches and explicit memory accesses.
+When SVKT=0, instruction fetches and explicit memory accesses proceed as
+though the Svkt extension were not implemented.
+When SVKT=1, an instruction fetch or explicit memory access with effective
+privilege mode U or VU that attempts to access a virtual address {ge}
+2^SXLEN-1^ raises a page-fault exception corresponding to the original access
+type.
+The timing of an instruction that raises an exception for this reason must be
+independent of the faulting virtual address.
 
 The definition of the PMM field is furnished by the Ssnpm extension.
 
@@ -2272,6 +2284,18 @@ storing Invalid PTEs in the address-translation caches, automatically evicting
 Invalid PTEs using a bounded timer, or making address-translation caches
 coherent with store instructions that modify PTEs.
 ====
+
+[[sec:svkt]]
+== "Svkt" Extension for Address-Independent Latency of User-Mode Faults to Supervisor Addresses, Version 0.2
+
+The Svkt extension provides a means to make user-mode accesses to supervisor
+memory raise page faults in constant time, mitigating attacks that attempt to
+discover the supervisor software's address-space layout.
+
+If the Svkt extension is implemented, the `senvcfg`.SVKT field is writable.
+If the hypervisor extension is additionally implemented, the `henvcfg`.HUVKT
+field is also writable.
+See <<sec:senvcfg>> and <<sec:henvcfg>> for the definitions of those fields.
 
 [[ssqosid]]
 == "Ssqosid" Extension for Quality-of-Service (QoS) Identifiers, Version 1.0
