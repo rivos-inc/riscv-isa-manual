@@ -2297,6 +2297,16 @@ If the hypervisor extension is additionally implemented, the `henvcfg`.HUVKT
 field is also writable.
 See <<sec:senvcfg>> and <<sec:henvcfg>> for the definitions of those fields.
 
+The Svkt extension depends on Sv39.
+
+NOTE: Svkt is not defined for Sv32 because the small address space limits the
+available entropy, reducing the effectiveness of address-space layout
+randomization.
+If an Sv32 variant were to be defined, it would need to account for the fact
+that it is more common to reserve only the upper 1 GiB of the virtual-address
+space for for the operating system, leaving the lower 3 GiB for user
+processes.
+
 [[ssqosid]]
 == "Ssqosid" Extension for Quality-of-Service (QoS) Identifiers, Version 1.0
 
