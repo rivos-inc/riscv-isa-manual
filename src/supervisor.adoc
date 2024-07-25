@@ -828,12 +828,9 @@ If the Svkt extension is implemented, the SVKT field affects the behavior of
 instruction fetches and explicit memory accesses.
 When SVKT=0, instruction fetches and explicit memory accesses proceed as
 though the Svkt extension were not implemented.
-When SVKT=1, an instruction fetch or explicit memory access with effective
-privilege mode U or VU that attempts to access a virtual address {ge}
-2^SXLEN-1^ raises a page-fault exception corresponding to the original access
-type.
-The timing of an instruction that raises an exception for this reason must be
-independent of the faulting virtual address.
+When SVKT=1, instruction fetches and explicit memory accesses with effective
+privilege mode U or VU are Svkt-qualified, as described in <<sec:svkt>>.
+If Svkt is not implemented, SVKT is read-only zero.
 
 The definition of the PMM field is furnished by the Ssnpm extension.
 
@@ -2306,6 +2303,23 @@ If an Sv32 variant were to be defined, it would need to account for the fact
 that it is more common to reserve only the upper 1 GiB of the virtual-address
 space for for the operating system, leaving the lower 3 GiB for user
 processes.
+
+When `senvcfg`.SVKT=1, an instruction fetch or explicit memory access whose
+effective privilege mode is U or VU is considered to be _Svkt-qualified_.
+For any Svkt-qualified memory access, virtual addresses {ge} 2^SXLEN-1^ are
+considered to be invalid; hence, an Svkt-qualified access to such an address
+raises a page-fault exception corresponding to the original access type.
+The timing of an instruction that raises an exception for this reason must be
+independent of the faulting virtual address.
+
+NOTE: Since whether an instruction is Svkt-qualified depends on the _effective_
+privilege mode of the access, even some instructions executed in HS-mode or M-mode
+(e.g. HLV with `hstatus`.SPVP=0, or LW with `mstatus`.MPRV=1 and
+`mstatus`.MPP=U) are Svkt-qualified.
+
+As described in <<sec:henvcfg>>, the `henvcfg`.HUVKT field, rather than the
+`senvcfg`.SVKT field, determines whether HLV, HLVX, and HSV instructions
+executed within U-mode are Svkt-qualified.
 
 [[ssqosid]]
 == "Ssqosid" Extension for Quality-of-Service (QoS) Identifiers, Version 1.0

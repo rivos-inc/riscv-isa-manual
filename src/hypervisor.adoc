@@ -654,8 +654,9 @@ The definition of the CBZE field is furnished by the Zicboz extension.
 
 The definitions of the CBCFE and CBIE fields are furnished by the Zicbom extension.
 
-If the Svkt extension is implemented, the HUVKT field affects the behavior of
-the HLV, HLVX, and HSV instructions when executed in U-mode.
+If the Svkt extension is implemented, the HUVKT field determines
+whether the HLV, HLVX, and HSV instructions, when executed in U-mode,
+are Svkt-qualified.
 When one of these instructions is executed in U-mode, it behaves as though
 `senvcfg`.SVKT were set to the value of HUVKT.
 If Svkt is not implemented, HUVKT is read-only zero.
