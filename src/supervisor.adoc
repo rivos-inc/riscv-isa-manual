@@ -2301,7 +2301,7 @@ available entropy, reducing the effectiveness of address-space layout
 randomization.
 If an Sv32 variant were to be defined, it would need to account for the fact
 that it is more common to reserve only the upper 1 GiB of the virtual-address
-space for for the operating system, leaving the lower 3 GiB for user
+space for the operating system, leaving the lower 3 GiB for user
 processes.
 
 When `senvcfg`.SVKT=1, an instruction fetch or explicit memory access whose
