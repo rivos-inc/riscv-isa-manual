@@ -2315,6 +2315,9 @@ independent of the faulting virtual address.
 
 NOTE: An Svukte-qualified access to such an address raises an exception even
 if the underlying PTE would have otherwise allowed the access.
+Practical implementations of Svukte will raise these exceptions based upon the
+effective address, without accessing the page tables or address-translation
+caches.
 
 NOTE: Since whether an instruction is Svukte-qualified depends on the _effective_
 privilege mode of the access, even some instructions executed in HS-mode or M-mode
