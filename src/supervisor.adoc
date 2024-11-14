@@ -733,7 +733,7 @@ characteristics of the U-mode execution environment.
   {bits:  1, name: 'CBCFE'},
   {bits:  1, name: 'CBZE'},
   {bits:  1, name: 'UKTE'},
-  {bits: 24, name: 'WPRI'},
+  {bits: 23, name: 'WPRI'},
   {bits:  2, name: 'PMM'},
   {bits: 30, name: 'WPRI'},
 ], config:{lanes: 4, hspace:1024}}
