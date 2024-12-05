@@ -10,7 +10,12 @@ modules:
 [%autowidth,float="center",align="center",cols="^,<,^",options="header",]
 |===
 |Module |Version |Status
+ifndef::ratified-release[]
 |_Machine ISA_ +
+endif::[]
+ifdef::ratified-release[]
+|*Machine ISA* +
+endif::[]
 *Smstateen Extension* +
 *Smcsrind/Sscsrind Extension* +
 *Smepmp Extension* +
@@ -18,7 +23,12 @@ modules:
 *Smrnmi Extension* +
 *Smcdeleg Extension* +
 *Smdbltrp Extension* +
+ifndef::ratified-release[]
 _Supervisor ISA_ +
+endif::[]
+ifdef::ratified-release[]
+*Supervisor ISA* +
+endif::[]
 *Svade Extension* +
 *Svnapot Extension* +
 *Svpbmt Extension* +
@@ -32,7 +42,12 @@ _Supervisor ISA_ +
 *Shlcofideleg Extension* +
 *Svvptc Extension*
 
+ifndef::ratified-release[]
 |_1.14_ +
+endif::[]
+ifdef::ratified-release[]
+|*1.13* +
+endif::[]
 *1.0* +
 *1.0* +
 *1.0* +
@@ -40,7 +55,12 @@ _Supervisor ISA_ +
 *1.0* +
 *1.0* +
 *1.0* +
+ifndef::ratified-release[]
 _1.14_ +
+endif::[]
+ifdef::ratified-release[]
+*1.13* +
+endif::[]
 *1.0* +
 *1.0* +
 *1.0* +
@@ -54,7 +74,12 @@ _1.14_ +
 *1.0* +
 *1.0*
 
+ifndef::ratified-release[]
 |_Draft_ +
+endif::[]
+ifdef::ratified-release[]
+|*Ratified* +
+endif::[]
 *Ratified* +
 *Ratified* +
 *Ratified* +
@@ -62,7 +87,12 @@ _1.14_ +
 *Ratified* +
 *Ratified* +
 *Ratified* +
+ifndef::ratified-release[]
 _Draft_ +
+endif::[]
+ifdef::ratified-release[]
+*Ratified* +
+endif::[]
 *Ratified* +
 *Ratified* +
 *Ratified* +
@@ -76,6 +106,8 @@ _Draft_ +
 *Ratified* +
 *Ratified*
 |===
+
+ifndef::ratified-release[]
 
 The following changes have been made since version 1.13 of the Machine and
 Supervisor ISAs, which, while not strictly backwards compatible, are not
@@ -92,6 +124,8 @@ Finally, the following clarifications and document improvements have been made
 since the last document release:
 
 * (None yet)
+
+endif::[]
 
 [.big]*_Preface to Version 20241017_*
 
